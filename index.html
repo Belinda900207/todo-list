@@ -1,0 +1,387 @@
+
+
+<!-- HTML5 文件 -->
+<!DOCTYPE html>
+
+<!-- 網頁開始，語言設定為繁體中文 -->
+<html lang="zh-Hant">
+
+<head>
+
+  <!-- 中文編碼，避免亂碼 -->
+  <meta charset="UTF-8">
+
+  <!-- RWD 基本設定 -->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+  <!-- 瀏覽器分頁標題 -->
+  <title>Notebook Todo</title>
+
+  <!-- 載入 CSS -->
+  <link
+    rel="stylesheet"
+    href="style.css">
+
+</head>
+
+<!-- 使用者看到的內容都放 body -->
+<body>
+
+  <!-- 整個 App 容器 -->
+  <div class="app">
+
+    <!-- ==================== -->
+    <!-- 首頁 -->
+    <!-- ==================== -->
+    <section
+      id="homePage"
+      class="page">
+
+      <!-- 首頁 Header -->
+      <header class="home-header">
+
+        <!-- 網站標題 -->
+        <h1>
+          Notebook Todo
+        </h1>
+
+        <!-- 設定按鈕 -->
+        <button
+          class="setting-btn"
+          type="button">
+
+          ⚙
+
+        </button>
+
+      </header>
+
+      <!-- 新增本按鈕 -->
+      <button
+        class="main-btn"
+        type="button">
+
+        ＋ 新增本
+
+      </button>
+
+      <!-- 本列表 -->
+      <div class="notebook-list">
+
+        <!-- ==================== -->
+        <!-- 學習本 -->
+        <!-- ==================== -->
+        <div class="notebook-card">
+
+          <!-- 本圖示 -->
+          <div class="notebook-icon">
+            📖
+          </div>
+
+          <!-- 本名稱 -->
+          <h2>
+            學習本
+          </h2>
+
+          <!-- 今日完成數 -->
+          <p>
+            今日 2 / 5
+          </p>
+
+          <!-- 進度條外層 -->
+          <div class="progress-bar">
+
+            <!-- 進度條內層 -->
+            <div
+              class="progress-fill"
+              style="width:40%;">
+
+            </div>
+
+          </div>
+
+          <!-- 進入本按鈕 -->
+          <button
+            class="enter-btn"
+            type="button">
+
+            ›
+
+          </button>
+
+        </div>
+
+        <!-- ==================== -->
+        <!-- 健康本 -->
+        <!-- ==================== -->
+        <div class="notebook-card">
+
+          <!-- 本圖示 -->
+          <div class="notebook-icon">
+            ♡
+          </div>
+
+          <!-- 本名稱 -->
+          <h2>
+            健康本
+          </h2>
+
+          <!-- 今日完成數 -->
+          <p>
+            今日 1 / 4
+          </p>
+
+          <!-- 進度條 -->
+          <div class="progress-bar">
+
+            <div
+              class="progress-fill"
+              style="width:25%;">
+
+            </div>
+
+          </div>
+
+          <!-- 進入本按鈕 -->
+          <button
+            class="enter-btn"
+            type="button">
+
+            ›
+
+          </button>
+
+        </div>
+
+        <!-- ==================== -->
+        <!-- 工作本 -->
+        <!-- ==================== -->
+        <div class="notebook-card">
+
+          <!-- 本圖示 -->
+          <div class="notebook-icon">
+            💼
+          </div>
+
+          <!-- 本名稱 -->
+          <h2>
+            工作本
+          </h2>
+
+          <!-- 今日完成數 -->
+          <p>
+            今日 3 / 6
+          </p>
+
+          <!-- 進度條 -->
+          <div class="progress-bar">
+
+            <div
+              class="progress-fill"
+              style="width:50%;">
+
+            </div>
+
+          </div>
+
+          <!-- 進入本按鈕 -->
+          <button
+            class="enter-btn"
+            type="button">
+
+            ›
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ==================== -->
+    <!-- 任務頁 -->
+    <!-- 預設 hidden -->
+    <!-- ==================== -->
+    <section
+      id="taskPage"
+      class="page hidden">
+
+      <!-- 任務頁 Header -->
+      <header class="task-header">
+
+        <!-- 返回首頁 -->
+        <button
+          id="backHomeBtn"
+          class="back-btn"
+          type="button">
+
+          ← 回首頁
+
+        </button>
+
+        <!-- 更多功能按鈕 -->
+        <button
+          class="more-btn"
+          type="button">
+
+          …
+
+        </button>
+
+      </header>
+
+      <!-- 任務頁主要內容 -->
+      <main class="task-main">
+
+        <!-- 本名稱區 -->
+        <div class="task-title">
+
+          <!-- 本圖示 -->
+          <div class="notebook-icon">
+            📖
+          </div>
+
+          <!-- 本名稱 -->
+          <h1>
+            學習本
+          </h1>
+
+        </div>
+
+        <!-- 日期切換區 -->
+        <div class="date-control">
+
+          <!-- 前一天 -->
+          <button
+            id="prevDateBtn"
+            type="button">
+
+            ‹
+
+          </button>
+
+          <!-- 日期按鈕 -->
+          <!-- 未來會開 Date Picker -->
+          <button
+            id="datePickerBtn"
+            class="date-display"
+            type="button">
+
+            今天
+
+          </button>
+
+          <!-- 後一天 -->
+          <button
+            id="nextDateBtn"
+            type="button">
+
+            ›
+
+          </button>
+
+        </div>
+
+        <!-- 任務列表 -->
+        <ul class="task-list">
+
+          <!-- 任務 1 -->
+          <li class="task-item">
+
+            <!-- 完成按鈕 -->
+            <button
+              class="check-btn"
+              type="button">
+
+            </button>
+
+            <!-- 任務名稱 -->
+            <span>
+              JavaScript
+            </span>
+
+            <!-- 刪除按鈕 -->
+            <button
+              class="delete-btn"
+              type="button">
+
+              🗑
+
+            </button>
+
+          </li>
+
+          <!-- 任務 2 -->
+          <li class="task-item">
+
+            <button
+              class="check-btn"
+              type="button">
+
+            </button>
+
+            <span>
+              DOM
+            </span>
+
+            <button
+              class="delete-btn"
+              type="button">
+
+              🗑
+
+            </button>
+
+          </li>
+
+          <!-- 已完成任務 -->
+          <li class="task-item completed">
+
+            <button
+              class="check-btn checked"
+              type="button">
+
+              ✓
+
+            </button>
+
+            <span>
+              Event
+            </span>
+
+            <button
+              class="delete-btn"
+              type="button">
+
+              🗑
+
+            </button>
+
+          </li>
+
+        </ul>
+
+        <!-- 新增任務按鈕 -->
+        <button
+          class="main-btn"
+          type="button">
+
+          ＋ 新增任務
+
+        </button>
+
+      </main>
+
+    </section>
+
+  </div>
+
+  <!-- 載入 JavaScript -->
+  <script src="script.js"></script>
+
+</body>
+
+</html>

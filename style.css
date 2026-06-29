@@ -1,0 +1,513 @@
+
+
+/* ==================== */
+/* 全域設定 */
+/* ==================== */
+
+/* 選取所有元素 */
+*{
+
+  /* 清除預設外距 */
+  margin:0;
+
+  /* 清除預設內距 */
+  padding:0;
+
+  /* 寬高計算包含 border */
+  box-sizing:border-box;
+}
+
+/* 整個網頁 */
+body{
+
+  /* 網頁字體 */
+  font-family:Arial,sans-serif;
+
+  /* 背景色 */
+  background:#f5f5f5;
+
+  /* 內距 */
+  padding:40px;
+}
+
+/* App 外層容器 */
+.app{
+
+  /* 最大寬度 */
+  max-width:1200px;
+
+  /* 左右置中 */
+  margin:0 auto;
+}
+
+/* 隱藏元素 */
+.hidden{
+
+  display:none;
+}
+
+/* ==================== */
+/* 首頁 */
+/* ==================== */
+
+/* Header */
+.home-header{
+
+  /* Flex 排版 */
+  display:flex;
+
+  /* 左右分開 */
+  justify-content:space-between;
+
+  /* 垂直置中 */
+  align-items:center;
+
+  /* 下方間距 */
+  margin-bottom:30px;
+}
+
+/* Notebook Todo */
+.home-header h1{
+
+  font-size:32px;
+}
+
+/* 設定按鈕 */
+.setting-btn{
+
+  border:none;
+
+  background:none;
+
+  font-size:24px;
+
+  cursor:pointer;
+}
+
+/* 主按鈕 */
+.main-btn{
+
+  padding:12px 20px;
+
+  border:none;
+
+  border-radius:12px;
+
+  font-size:16px;
+
+  cursor:pointer;
+}
+
+/* ==================== */
+/* 本列表 */
+/* ==================== */
+
+.notebook-list{
+
+  /* Grid 排版 */
+  display:grid;
+
+  /* 桌機版三欄 */
+  grid-template-columns:
+  repeat(3,1fr);
+
+  /* 卡片間距 */
+  gap:20px;
+
+  /* 上方間距 */
+  margin-top:30px;
+}
+
+/* ==================== */
+/* 本卡片 */
+/* ==================== */
+
+.notebook-card{
+
+  /* 白底 */
+  background:white;
+
+  /* 內距 */
+  padding:20px;
+
+  /* 圓角 */
+  border-radius:20px;
+
+  /* 陰影 */
+  box-shadow:
+  0 2px 8px rgba(0,0,0,.1);
+
+  /* 給箭頭定位 */
+  position:relative;
+
+  cursor:pointer;
+}
+
+/* 本圖示 */
+.notebook-icon{
+
+  font-size:40px;
+
+  margin-bottom:10px;
+}
+
+/* 本名稱 */
+.notebook-card h2{
+
+  margin-bottom:10px;
+}
+
+/* 今日進度 */
+.notebook-card p{
+
+  margin-bottom:10px;
+}
+
+/* ==================== */
+/* 進度條 */
+/* ==================== */
+
+/* 外層軌道 */
+.progress-bar{
+
+  height:10px;
+
+  background:#ddd;
+
+  border-radius:999px;
+
+  overflow:hidden;
+}
+
+/* 內層進度 */
+.progress-fill{
+
+  height:100%;
+
+  background:#4caf50;
+}
+
+/* ==================== */
+/* 進入按鈕 */
+/* ==================== */
+
+.enter-btn{
+
+  /* 絕對定位 */
+  position:absolute;
+
+  /* 距離上方 */
+  top:20px;
+
+  /* 距離右方 */
+  right:20px;
+
+  border:none;
+
+  background:none;
+
+  font-size:24px;
+
+  cursor:pointer;
+}
+
+/* ==================== */
+/* 任務頁 Header */
+/* ==================== */
+
+.task-header{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  margin-bottom:40px;
+}
+
+/* 返回首頁 */
+.back-btn{
+
+  border:none;
+
+  background:none;
+
+  font-size:16px;
+
+  cursor:pointer;
+}
+
+/* 更多功能 */
+.more-btn{
+
+  border:none;
+
+  background:none;
+
+  font-size:24px;
+
+  cursor:pointer;
+}
+
+/* ==================== */
+/* 任務主卡片 */
+/* ==================== */
+
+.task-main{
+
+  /* 最大寬度 */
+  max-width:700px;
+
+  /* 左右置中 */
+  margin:0 auto;
+
+  /* 白底 */
+  background:white;
+
+  /* 圓角 */
+  border-radius:24px;
+
+  /* 內距 */
+  padding:40px;
+
+  /* 陰影 */
+  box-shadow:
+  0 2px 8px rgba(0,0,0,.1);
+}
+
+/* ==================== */
+/* 本名稱區 */
+/* ==================== */
+
+.task-title{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:12px;
+
+  margin-bottom:30px;
+}
+
+/* ==================== */
+/* 日期區 */
+/* ==================== */
+
+.date-control{
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  gap:20px;
+
+  margin-bottom:30px;
+}
+
+/* 左右日期按鈕 */
+.date-control button{
+
+  width:36px;
+
+  height:36px;
+
+  border:none;
+
+  border-radius:50%;
+
+  font-size:24px;
+
+  cursor:pointer;
+}
+
+/* 日期按鈕 */
+.date-display{
+
+  border:none;
+
+  background:none;
+
+  font-size:18px;
+
+  font-weight:bold;
+
+  cursor:pointer;
+}
+
+/* ==================== */
+/* 任務列表 */
+/* ==================== */
+
+.task-list{
+
+  list-style:none;
+
+  margin-bottom:30px;
+}
+
+/* 單一任務 */
+.task-item{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:12px;
+
+  padding:14px 0;
+
+  border-bottom:1px solid #eee;
+}
+
+/* 任務文字 */
+.task-item span{
+
+  /* 吃掉剩餘空間 */
+  flex:1;
+}
+
+/* 已完成任務 */
+.task-item.completed span{
+
+  text-decoration:line-through;
+
+  opacity:.5;
+}
+
+/* ==================== */
+/* 完成按鈕 */
+/* ==================== */
+
+.check-btn{
+
+  width:24px;
+
+  height:24px;
+
+  border:2px solid #aaa;
+
+  border-radius:50%;
+
+  background:white;
+
+  cursor:pointer;
+}
+
+/* 已完成 */
+.check-btn.checked{
+
+  background:#4caf50;
+
+  color:white;
+
+  border:none;
+}
+
+/* ==================== */
+/* 刪除按鈕 */
+/* ==================== */
+
+.delete-btn{
+
+  border:none;
+
+  background:none;
+
+  cursor:pointer;
+}
+
+/* ==================== */
+/* 平板版 */
+/* ==================== */
+
+@media (max-width:992px){
+
+  /* 本列表改兩欄 */
+  .notebook-list{
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+  }
+
+}
+
+/* ==================== */
+/* 手機版 */
+/* ==================== */
+
+@media (max-width:768px){
+
+  /* 頁面內距縮小 */
+  body{
+
+    padding:20px;
+
+  }
+
+  /* Header 改直向 */
+  .home-header{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:15px;
+
+  }
+
+  /* 本列表改一欄 */
+  .notebook-list{
+
+    grid-template-columns:1fr;
+
+  }
+
+  /* 任務主卡片縮小 */
+  .task-main{
+
+    padding:20px;
+
+  }
+
+  /* 日期區縮小間距 */
+  .date-control{
+
+    gap:10px;
+
+  }
+
+}
+
+/* ==================== */
+/* 小手機 */
+/* ==================== */
+
+@media (max-width:480px){
+
+  /* 首頁標題縮小 */
+  .home-header h1{
+
+    font-size:24px;
+
+  }
+
+  /* 圖示縮小 */
+  .notebook-icon{
+
+    font-size:32px;
+
+  }
+
+  /* 任務頁標題縮小 */
+  .task-title h1{
+
+    font-size:24px;
+
+  }
+
+}
