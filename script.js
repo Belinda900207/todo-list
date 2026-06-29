@@ -34,6 +34,74 @@ document.querySelector(
   "#datePickerBtn"
 );
 
+// ====================
+// V2: 新增任務所需元素與資料
+// ====================
+// V2: 取得新增任務相關元素
+const taskInput = document.querySelector('#taskInput');
+const addTaskBtn = document.querySelector('#addTaskBtn');
+const taskList = document.querySelector('#taskList');
+
+// V2: tasks 陣列（暫存於記憶體）
+const tasks = [];
+
+// V2: 新增任務函式
+function addTask() {
+  // V2: 取得並修剪輸入值
+  const title = taskInput.value.trim();
+
+  // V2: 空字串不可新增
+  if (title === '') {
+    return;
+  }
+
+  // V2: 建立任務物件
+  const task = { title: title, completed: false };
+
+  // V2: 加入陣列
+  tasks.push(task);
+
+  // V2: 清空並回焦
+  taskInput.value = '';
+  taskInput.focus();
+
+  // V2: 重新渲染畫面
+  renderTasks();
+}
+
+// V2: renderTasks - 只負責將 tasks 陣列渲染到畫面上
+function renderTasks() {
+  // V2: 先清空列表
+  taskList.innerHTML = '';
+
+  // V2: 逐一建立 li.task-item 及內容（span）
+  tasks.forEach(function (t) {
+    const li = document.createElement('li');
+    li.className = 'task-item'; // V2 要求的 class
+
+    const span = document.createElement('span');
+    span.textContent = t.title;
+
+    li.appendChild(span);
+    taskList.appendChild(li);
+  });
+}
+
+// V2: 綁定事件 - 點擊按鈕與 Enter 鍵新增
+if (addTaskBtn) {
+  addTaskBtn.addEventListener('click', function () {
+    addTask();
+  });
+}
+
+if (taskInput) {
+  taskInput.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') {
+      addTask();
+    }
+  });
+}
+
 
 // ====================
 // 點本卡片
