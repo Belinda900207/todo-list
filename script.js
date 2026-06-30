@@ -69,20 +69,54 @@ function addTask() {
   renderTasks();
 }
 
-// V2: renderTasks - 只負責將 tasks 陣列渲染到畫面上
+// V3: 切換任務完成狀態
+function toggleTask(index) {
+  if (!tasks[index]) {
+    return;
+  }
+
+  tasks[index].completed = !tasks[index].completed;
+  renderTasks();
+}
+
+// V2/V3: renderTasks - 依照 tasks 陣列渲染畫面
 function renderTasks() {
   // V2: 先清空列表
   taskList.innerHTML = '';
 
-  // V2: 逐一建立 li.task-item 及內容（span）
-  tasks.forEach(function (t) {
+  // V2/V3: 逐一建立 li.task-item、checkbox 與 span
+  tasks.forEach(function (t, index) {
     const li = document.createElement('li');
     li.className = 'task-item'; // V2 要求的 class
+
+    if (t.completed) {
+      li.classList.add('completed');
+    }
+
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.className = 'check-btn';
+    checkbox.checked = t.completed;
+
+    checkbox.addEventListener('change', function (e) {
+      e.stopPropagation();
+      toggleTask(index);
+    });
 
     const span = document.createElement('span');
     span.textContent = t.title;
 
+    li.appendChild(checkbox);
     li.appendChild(span);
+
+    li.addEventListener('click', function (e) {
+      if (e.target === checkbox) {
+        return;
+      }
+
+      toggleTask(index);
+    });
+
     taskList.appendChild(li);
   });
 }
