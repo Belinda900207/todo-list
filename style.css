@@ -361,6 +361,8 @@ body{
   padding:14px 0;
 
   border-bottom:1px solid #eee;
+
+  cursor:pointer;
 }
 
 /* 任務文字 */
@@ -368,6 +370,10 @@ body{
 
   /* 吃掉剩餘空間 */
   flex:1;
+
+  min-width:0;
+
+  overflow-wrap:anywhere;
 }
 
 /* 已完成任務 */
@@ -395,16 +401,13 @@ body{
   background:white;
 
   cursor:pointer;
+
+  flex-shrink:0;
 }
 
-/* 已完成 */
-.check-btn.checked{
+.check-btn:checked{
 
-  background:#4caf50;
-
-  color:white;
-
-  border:none;
+  accent-color:#4caf50;
 }
 
 /* ==================== */
@@ -413,11 +416,28 @@ body{
 
 .delete-btn{
 
-  border:none;
+  border:1px solid #ccc;
 
-  background:none;
+  background:white;
+
+  color:#666;
+
+  padding:4px 10px;
+
+  border-radius:999px;
+
+  font-size:14px;
 
   cursor:pointer;
+
+  flex-shrink:0;
+}
+
+.delete-btn:hover{
+
+  border-color:#333;
+
+  color:#333;
 }
 
 /* ==================== */

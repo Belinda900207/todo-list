@@ -79,7 +79,17 @@ function toggleTask(index) {
   renderTasks();
 }
 
-// V2/V3: renderTasks - 依照 tasks 陣列渲染畫面
+// V4: 刪除指定任務
+function removeTask(index) {
+  if (!tasks[index]) {
+    return;
+  }
+
+  tasks.splice(index, 1);
+  renderTasks();
+}
+
+// V2/V3/V4: renderTasks - 依照 tasks 陣列渲染畫面
 function renderTasks() {
   // V2: 先清空列表
   taskList.innerHTML = '';
@@ -106,8 +116,19 @@ function renderTasks() {
     const span = document.createElement('span');
     span.textContent = t.title;
 
+    const deleteBtn = document.createElement('button');
+    deleteBtn.type = 'button';
+    deleteBtn.className = 'delete-btn';
+    deleteBtn.textContent = '刪除';
+
+    deleteBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      removeTask(index);
+    });
+
     li.appendChild(checkbox);
     li.appendChild(span);
+    li.appendChild(deleteBtn);
 
     li.addEventListener('click', function (e) {
       if (e.target === checkbox) {
@@ -200,49 +221,57 @@ notebookCards.forEach(
 // 返回首頁
 // ====================
 
-backHomeBtn.addEventListener(
+if (backHomeBtn) {
 
-  "click",
+  backHomeBtn.addEventListener(
 
-  function(){
+    "click",
 
-    // ====================
-    // 顯示首頁
-    // ====================
+    function(){
 
-    homePage.classList.remove(
-      "hidden"
-    );
+      // ====================
+      // 顯示首頁
+      // ====================
 
-    // ====================
-    // 隱藏任務頁
-    // ====================
+      homePage.classList.remove(
+        "hidden"
+      );
 
-    taskPage.classList.add(
-      "hidden"
-    );
+      // ====================
+      // 隱藏任務頁
+      // ====================
 
-  }
+      taskPage.classList.add(
+        "hidden"
+      );
 
-);
+    }
+
+  );
+
+}
 
 
 // ====================
 // 日期按鈕
 // ====================
 
-datePickerBtn.addEventListener(
+if (datePickerBtn) {
 
-  "click",
+  datePickerBtn.addEventListener(
 
-  function(){
+    "click",
 
-    // 目前先測試
+    function(){
 
-    alert(
-      "未來這裡會開啟日期選擇器"
-    );
+      // 目前先測試
 
-  }
+      alert(
+        "未來這裡會開啟日期選擇器"
+      );
 
-);
+    }
+
+  );
+
+}
